@@ -14,17 +14,18 @@ class Solution:
             if left_max <= right_max:
                 volume += left_max - height[left]
                 left += 1
+                left_max = max(height[left], left_max)
             else:
                 volume += right_max - height[right]
                 right -= 1
-            left_max, right_max = max(height[left], left_max), max(height[right], right_max)
+                right_max = max(height[right], right_max)
         return volume
 
 
 height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
 height = [0, 1, 0, 0, 0, 1, 0]
 height = [0, 3, 0]
-height = [10, 0, 1]
+height = [1, 0, 10]
 
 solution = Solution()
 print(solution.trap(height))
