@@ -9,7 +9,7 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 '''
 
 from typing import Optional
-from UserDataType import ListNode, convert_list_to_linkedlist, convert_linkedlist_to_list
+from LinkedList import ListNode, convert_list_to_linkedlist, convert_linkedlist_to_list
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:

@@ -5,7 +5,7 @@ Given the head of a singly linked list, reverse the list, and return the reverse
 '''
 
 from typing import Optional
-from UserDataType import ListNode, convert_list_to_linkedlist, convert_linkedlist_to_list
+from LinkedList import ListNode, convert_list_to_linkedlist, convert_linkedlist_to_list
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:

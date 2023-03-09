@@ -5,7 +5,7 @@ Given the head of a singly linked list,
 return true if it is a palindrome or false otherwise.
 '''
 from typing import Optional
-from UserDataType import ListNode
+from LinkedList import ListNode
 
 
 class Solution:
