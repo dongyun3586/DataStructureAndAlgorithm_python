@@ -10,12 +10,10 @@ class ListNode:
 
 def convert_list_to_linkedlist(lst: List) -> Optional[ListNode]:
     linked_list = None
-
     for i in range(len(lst) - 1, -1, -1):
         new = ListNode(lst[i])
         new.next = linked_list
         linked_list = new
-
     return linked_list
 
 
@@ -25,3 +23,9 @@ def convert_linkedlist_to_list(node: Optional[ListNode]) -> List:
         result.append(node.val)
         node = node.next
     return result
+
+
+def print_linkedlist(node: Optional[ListNode]):
+    while node:
+        print(node.val, end=' ')
+        node = node.next
