@@ -25,7 +25,7 @@ head = convert_list_to_linkedlist(head)
 # 출력 해보기
 node = head
 while node is not None:
-    print(node.val)
+    print(node.val, end=' ')
     node = node.next
 
 solution = Solution()

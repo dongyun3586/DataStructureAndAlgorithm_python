@@ -9,12 +9,20 @@ class ListNode:
 
 
 def convert_list_to_linkedlist(lst: List) -> Optional[ListNode]:
-    linked_list = None
-    for i in range(len(lst) - 1, -1, -1):
-        new = ListNode(lst[i])
-        new.next = linked_list
-        linked_list = new
-    return linked_list
+    head = ListNode(lst[0])
+    node = head
+    for i in range(1, len(lst)):
+        node.next = ListNode(lst[i])
+        node = node.next
+    return head
+
+# def convert_list_to_linkedlist(lst: List) -> Optional[ListNode]:
+#     node = None
+#     for i in range(len(lst) - 1, -1, -1):
+#         new = ListNode(lst[i])
+#         new.next = node
+#         node = new
+#     return node
 
 
 def convert_linkedlist_to_list(node: Optional[ListNode]) -> List:
