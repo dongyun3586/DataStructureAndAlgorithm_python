@@ -1,6 +1,6 @@
 class Node:
-    next = None
     value = ''
+    next = None
     head = False
     tail = False
 

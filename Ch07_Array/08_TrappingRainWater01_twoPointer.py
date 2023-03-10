@@ -23,9 +23,9 @@ class Solution:
 
 
 height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
-height = [0, 1, 0, 0, 0, 1, 0]
-height = [0, 3, 0]
-height = [1, 0, 10]
+# height = [0, 1, 0, 0, 0, 1, 0]
+# height = [0, 3, 0]
+# height = [1, 0, 10]
 
 solution = Solution()
 print(solution.trap(height))

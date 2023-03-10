@@ -13,16 +13,14 @@ class SinglyLinkedList:
     def insertAt(self, value, index_insert):
         node_new = Node(value=value)
         node_prev = self.get(index_insert - 1)
-        node_next = node_prev.get_next()
+        node_new.set_next(node_prev.next)
         node_prev.set_next(node_new)
-        node_new.set_next(node_next)
         self.size += 1
 
     def removeAt(self, index_remove):
         node_prev = self.get(index_remove - 1)
         node_remove = node_prev.get_next()
-        node_next = node_remove.get_next()
-        node_prev.set_next(node_next)
+        node_prev.set_next(node_remove.get_next())
         self.size -= 1
         return node_remove.get_value()
 

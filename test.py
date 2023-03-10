@@ -1,51 +1,59 @@
-from typing import *
-from LinkedList import *
+'''
+https://leetcode.com/problems/palindrome-linked-list/
+
+Given the head of a singly linked list,
+return true if it is a palindrome or false otherwise.
+'''
+from typing import Optional
+from collections import deque
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        if not list1:
-            if not list2:
-                return None
-            else:
-                return list2
-        if not list2:
-            return list1
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        if not head:
+            return False
 
-        if list1.val <= list2.val:
-            head = list1
-            list1 = list1.next
-        else:
-            head = list2
-            list2 = list2.next
+        slow = fast = head
+        rev = None
 
-        node = head
-        while list1 and list2:
-            if list1.val <= list2.val:
-                node.next, node = list1, list1
-                list1 = list1.next
-            else:
-                node.next, node = list2, list2
-                list2 = list2.next
+        while fast and fast.next:
+            fast = fast.next.next
+            slow.next, rev, slow = rev, slow, slow.next
 
-        while list1:
-            node.next, node = list1, list1
-            list1 = list1.next
+        if fast:
+           slow = slow.next
 
-        while list2:
-            node.next, node = list2, list2
-            list2 = list2.next
+        while rev and slow:
+            if rev.val != slow.val:
+                return False
+            rev, slow = rev.next, slow.next
 
-        return head
+        return not slow
 
 
-list1 = [1, 2, 4]
-list2 = [1, 3, 4]  # Output: [1,1,2,3,4,4]
-list1 = []
-list2 = [0]
-list1 = convert_list_to_linkedlist(list1)
-list2 = convert_list_to_linkedlist(list2)
+head = [1, 2, 3, 2, 1]  # Output: true
+# head = [1,2]            # Output: false
+
+# # list -> singly linked list : 첫 번재 요소부터 생성
+prev = ListNode(head[0])
+node = prev
+for i in range(1, len(head)):
+    node.next = ListNode(head[i])
+    node = node.next
+
+# # list -> singly linked list : 마지막 요소부터 생성
+# prev = None
+# for i in range(len(head) - 1, -1, -1):
+#     new = ListNode(head[i])
+#     new.next = prev
+#     prev = new
 
 solution = Solution()
-result = solution.mergeTwoLists(list1, list2)
-print_linkedlist(result)
+print(solution.isPalindrome(prev))

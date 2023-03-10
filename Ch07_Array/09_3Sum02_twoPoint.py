@@ -9,10 +9,10 @@ class Solution:
         results = []
 
         for i in range(len(nums) - 2):
-            # 중복되는 값 건너뛰기
+            # 중복되는 i값 건너뛰기
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
-            # left, right를 설정하고 간격을 좁히면서 sum = 0 인 경우 찾기
+            # left, right 투 포인터를 설정하고 간격을 좁히면서 sum = 0 인 경우 찾기
             left, right = i + 1, len(nums) - 1
             while left < right:
                 sum = nums[i] + nums[left] + nums[right]
@@ -25,19 +25,19 @@ class Solution:
                     results.append([nums[i], nums[left], nums[right]])
 
                     # left와 right 위치에 동일한 값이 있는 경우 다른 값이 나올 때까지 지나가기
-                    left += 1
-                    while left < right and nums[left] == nums[left - 1]:
+                    while left < right and nums[left] == nums[left + 1]:
                         left += 1
-                    # while left < right and nums[right] == nums[right - 1]:
-                    #     right -= 1
-                    # right -= 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    left += 1
+                    right -= 1
 
         return results
 
 
 # Result : Time Limit Exceeded
 nums = [-1, 0, 1, 2, -1, -4]
-nums = [-2,0,0,2,2]
+# nums = [-2, 0, 0, 2, 2]
 
 solution = Solution()
 print(solution.threeSum(nums))

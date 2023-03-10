@@ -17,11 +17,10 @@ class Solution:
         for i in range(0, len(nums) - 1):
             p = p * nums[i]
             out.append(p)
-        # out = [1, 1, 2, 6]
 
         p = 1
         # 왼쪽 요소들의 곱셈 결과에 오른쪽 요소들의 곱셈 결과를 차례대로 곱셈
-        for i in range(len(nums) - 1, 0, -1):   # [3, 2, 1]
+        for i in range(len(nums) - 1, 0, -1):
             p = p * nums[i]
             out[i - 1] = out[i - 1] * p
 
