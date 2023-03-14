@@ -6,7 +6,7 @@ return true if it is a palindrome or false otherwise.
 '''
 
 from typing import Optional
-from LinkedList import ListNode
+from SinglyLinkedList import ListNode
 
 
 class Solution:

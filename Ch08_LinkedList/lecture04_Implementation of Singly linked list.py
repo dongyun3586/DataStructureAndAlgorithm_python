@@ -1,4 +1,4 @@
-from LinkedList import SinglyLinkedList
+from SinglyLinkedList import SinglyLinkedList
 
 list1 = SinglyLinkedList()
 list1.insertAt('A', 0)
